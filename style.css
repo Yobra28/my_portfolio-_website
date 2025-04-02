@@ -23,6 +23,7 @@ html {
     overflow-x: hidden;
     background-color: var(--bg-color); /* Set background color */
     color: var(--text-color); /* Set default text color */
+    scroll-behavior: smooth;
 }
 
 .section {
@@ -72,145 +73,187 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2rem; /* Add spacing between the image and text */
     flex-wrap: wrap; /* Ensure content wraps on smaller screens */
     padding: 5rem 2rem; /* Add padding for spacing */
-}
-
-.home .content h3 {
-    font-size: 3.2rem;
-    font-weight: 700;
-    margin-bottom: 1rem; /* Add spacing */
-}
-
-.home .content h1 {
-    font-size: 5.6rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 1rem; /* Add spacing */
-}
-
-span {
-    color: var(--main-color);
+    background: var(--snd-bf-color); /* Background color for the section */
+    border-radius: 1rem; /* Smooth rounded corners */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .home-img {
-    width: 30vw; /* Slightly larger image */
-    max-width: 100%; /* Ensure it doesn't overflow */
-    animation: floatImage 4s ease-in-out infinite;
-    margin-top: 2rem; /* Add spacing */
-    border-radius: 1rem; /* Smooth rounded corners */
+    flex: 1; /* Allow the image to take up equal space */
+    max-width: 10%; /* Limit the width of the image */
+    text-align: center; /* Center-align the image */
 }
 
-@keyframes floatImage {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-2.4rem);
-    }
-    100% {
-        transform: translateY(0);
-    }
+.home-img img {
+    width: 100%; /* Ensure the image takes the full width of its container */
+    border-radius: 1rem; /* Add rounded corners */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: 0.3s ease; /* Add smooth transition for hover effects */
+}
+
+.home-img img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+.home-content {
+    flex: 1; /* Allow the text to take up equal space */
+    text-align: left; /* Align text to the left */
+}
+
+.home-content h3 {
+    font-size: 3.2rem; /* Adjust font size for the subheading */
+    font-weight: 700;
+    margin-bottom: 1rem; /* Add spacing below the subheading */
+    color: var(--main-color); /* Highlight the subheading */
+}
+
+.home-content h1 {
+    font-size: 5.6rem; /* Adjust font size for the main heading */
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem; /* Add spacing below the main heading */
+    color: var(--text-color); /* Main text color */
 }
 
 .home-content p {
-    font-size: 1.8rem; /* Slightly larger font size */
-    margin-bottom: 2rem; /* Add spacing */
+    font-size: 1.8rem; /* Adjust font size for the paragraph */
+    line-height: 1.8; /* Improve readability */
+    margin-bottom: 2rem; /* Add spacing below the paragraph */
+    color: var(--text-color); /* Text color for visibility */
 }
 
-.social-media a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 4rem;
-    height: 4rem;
-    background: transparent;
-    border: 0.2rem solid var(--main-color);
-    border-radius: 50%; /* Smooth circular borders */
-    font-size: 2rem;
-    color: var(--main-color);
-    margin: 1.5rem 1rem; /* Adjust spacing */
-    transition: 0.5s ease;
-}
-
-.social-media a:hover {
-    background: var(--main-color);
-    color: var(--text-color);
-    box-shadow: 0 0 1rem var(--main-color); /* Add a smooth shadow effect */
-}
-
-.btn {
+.home-content .btn {
     display: inline-block;
-    padding: 1rem 2rem; /* Reduced padding for better fit */
-    background: var(--main-color);
-    color: var(--text-color);
-    font-size: 1.4rem; /* Adjusted font size for better fit */
-    border-radius: 1rem; /* Smooth rounded corners */
-    transition: 0.3s ease;
-    letter-spacing: 0.05rem; /* Slightly reduced letter spacing */
+    padding: 1rem 2rem; /* Add padding for the button */
+    background: var(--main-color); /* Button background color */
+    color: var(--text-color); /* Button text color */
+    font-size: 1.6rem; /* Adjust font size */
+    border-radius: 2rem; /* Smooth rounded corners */
     font-weight: 700;
-    text-align: center; /* Ensure text is centered */
-    white-space: nowrap; /* Prevent text wrapping */
+    text-transform: uppercase; /* Make text uppercase */
+    transition: 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer; /* Change cursor to pointer */
 }
 
-.btn:hover {
-    background: var(--text-color);
-    color: var(--main-color);
-    border-radius: 2.5rem; /* Slightly more rounded on hover */
+.home-content .btn:hover {
+    background: var(--text-color); /* Invert colors on hover */
+    color: var(--main-color); /* Change text color on hover */
+    box-shadow: 0 0 1.5rem var(--main-color); /* Add glow effect on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .home {
         flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center-align text */
     }
 
     .home-img {
-        width: 50vw; /* Adjust image size for smaller screens */
+        max-width: 100%; /* Allow full width on smaller screens */
+        margin-bottom: 2rem; /* Add spacing below the image */
     }
 
-    .navbar {
-        font-size: 1.4rem; /* Adjust font size */
+    .home-content {
+        text-align: center; /* Center-align text on smaller screens */
     }
 }
-.about{
+.about {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    background: var(--snd-bf-color);
+    gap: 2rem; /* Add spacing between the image and text */
+    flex-wrap: wrap; /* Ensure content wraps on smaller screens */
+    padding: 5rem 2rem; /* Add padding for spacing */
+    background: var(--snd-bf-color); /* Background color for the section */
+    border-radius: 1rem; /* Smooth rounded corners */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
-.about-img{
-    width: 35vw;
+
+.about-img {
+    flex: 1; /* Allow the image to take up equal space */
+    max-width: 40%; /* Limit the width of the image */
+    text-align: center; /* Center-align the image */
     
 }
-.heading{
-    font-size: 3.2rem;
-    
-    text-align: center;
+.img{
+    width: 5%; /* Ensure the image takes the full width of its container */
+    border-radius: 50%; /* Make the image circular */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: 0.3s ease; /* Add smooth transition for hover effects */
 }
-.about-content h2{
-    
-    line-height: 1.2;
-    text-align: center;
+
+.about-img img {
+    width: 35%; /* Ensure the image takes the full width of its container */
+    border-radius: 60%; /* Make the image circular */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: 0.3s ease; /* Add smooth transition for hover effects */
 }
-.about-content h3{
-    font-size: 1.6rem;
-    line-height: 1.5;
-    text-align: center;
-    margin: 2rem 0;
+
+.about-img img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
 }
-.service{
+
+.about-content {
+    flex: 1; /* Allow the text to take up equal space */
+    text-align: left; /* Align text to the left */
+}
+
+.about-content h3 {
+    font-size: 3.2rem; /* Adjust font size for the subheading */
+    font-weight: 700;
+    margin-bottom: 1rem; /* Add spacing below the subheading */
+    color: var(--main-color); /* Highlight the subheading */
+}
+
+.about-content h1 {
+    font-size: 5.6rem; /* Adjust font size for the main heading */
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem; /* Add spacing below the main heading */
+    color: var(--text-color); /* Main text color */
+}
+
+.about-content p {
+    font-size: 1.8rem; /* Adjust font size for the paragraph */
+    line-height: 1.8; /* Improve readability */
+    margin-bottom: 2rem; /* Add spacing below the paragraph */
+    color: var(--text-color); /* Text color for visibility */
+}
+
+.about-content .btn {
+    display: inline-block;
+    padding: 1rem 2rem; /* Add padding for the button */
+    background: var(--main-color); /* Button background color */
+    color: var(--text-color); /* Button text color */
+    font-size: 1.6rem; /* Adjust font size */
+    border-radius: 2rem; /* Smooth rounded corners */
+    font-weight: 700;
+    text-transform: uppercase; /* Make text uppercase */
+    transition: 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.about-content .btn:hover {
+    background: var(--text-color); /* Invert colors on hover */
+    color: var(--main-color); /* Change text color on hover */
+    box-shadow: 0 0 1.5rem var(--main-color); /* Add glow effect on hover */
+}
+.service {
     margin-bottom: 5rem;
 }
-.service-container{
+.service-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
-.service-container .service-box{
+.service-container .service-box {
     flex: 1 1 1rem;
     background: var(--snd-bf-color);
     padding: 1rem 2rem 3rem; 
@@ -220,93 +263,19 @@ span {
     transition: 0.3s ease;
    
 }
-.service-container .service-box:hover{
+.service-container .service-box:hover {
     transform: translateY(-1rem); /* Slight lift effect on hover */
     box-shadow: 0 0 2rem var(--main-color); /* Shadow effect on hover */
 }
-.service-box p{
+.service-box p {
     font-size: 1rem;
     margin: 1rem ; /* Add spacing */
 }
-.portfolio{
+.portfolio {
     margin-bottom: 4rem;
 }
-.portfolio-container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns layout */
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-.portfolio-container .portfolio-box{
-    position: relative;
-    background: var(--snd-bf-color);
-    padding: 25rem 6rem 5rem; 
-    border-radius: 4rem; /* Smooth rounded corners */
-    text-align: center;
-    box-shadow: 0 0 2rem var(--bg-color); /* Shadow effect */
-    border: 0.1rem solid var(--bg-color); /* Border for emphasis */
-    transition: 0.3s ease;
-    display: flex;
-    overflow: hidden;
-}
-.portfolio-box-img{
-    width: 50%;
-    height: 50px; /* Maintain the aspect ratio of the image */
-    object-fit: contain; /* Ensure the entire image is visible */
-    transition: 0.5s ease;
-    opacity: 0.9; /* Slight transparency for effect */
-}
-.portfolio-box:hover img{
-    transform: scale(1.05); /* Slight zoom effect on hover */
-    opacity: 1; /* Full opacity on hover */
-}
-.portfolio-box .portfolio-layer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient rgba(0, 0, 0, 0.1) var(--main-color); /* Semi-transparent overlay */
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 0rem;
-    transform: translateY(100%); /* Start hidden below */
-    opacity: 0; /* Hidden by default */
-    transition: 0.5s ease;
-}
-.portfolio-box:hover .portfolio-layer{
-    transform: translateY(0); /* Slide up on hover */
-    opacity: 1; /* Show overlay on hover */
-}
-.portfolio-layer h3{
-    font-size: 2rem;
-    color: var(--text-color); /* Text color for visibility */
-    margin-bottom: 1rem; /* Add spacing */
-}
-.portfolio-layer p{
-    font-size: 1.6rem;
-    color: var(--text-color); /* Text color for visibility */
-    margin: 3rem 0 1 rem; /* Add spacing */
 
-}
-.portfolio-layer a{
-    background: var(--main-color);
-    color: var(--text-color); /* Text color for visibility */
-    font-size: 1.6rem;
-    border-radius: 50%; /* Smooth rounded corners */
-    transition: 0.3s ease;
-    letter-spacing: 0.1rem;
-    font-weight: 700;
-    display: inline-block;
-    width: 5rem;
-    height: 5rem;
-    align-items: 50%;
-}
-.bt{
+.bt {
     background: var(--main-color);
     color: var(--text-color); /* Text color for visibility */
     font-size: 1.6rem;
@@ -320,4 +289,665 @@ span {
     text-align: center; /* Center text inside the button */
     padding: 1rem 2rem; /* Add padding for spacing */
     object-fit: contain; /* Ensure the image fits fully */
+}
+.contact {
+    max-width: 60rem; /* Set a reasonable width for the contact form */
+    margin: 0 auto; /* Center the contact section */
+    text-align: center; /* Center-align text */
+    margin-bottom: 5rem; /* Add spacing below the section */
+    padding: 3rem 2rem; /* Add padding for spacing */
+    background: var(--snd-bf-color); /* Background color for the contact section */
+    border-radius: 2rem; /* Smooth rounded corners */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+.contact h2 {
+    font-size: 3rem; /* Larger font size for the heading */
+    color: var(--main-color); /* Highlight the heading with the main color */
+    margin-bottom: 2rem; /* Add spacing below the heading */
+    font-weight: 700;
+}
+
+.contact p {
+    font-size: 1.6rem; /* Adjust font size for better readability */
+    color: var(--text-color); /* Text color for visibility */
+    margin-bottom: 2rem; /* Add spacing below the paragraph */
+    line-height: 1.5; /* Improve readability */
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.contact-details {
+    flex: 1; /* Take up equal space */
+    max-width: 40%; /* Limit the width of the contact details */
+    background: var(--snd-bf-color); /* Background color for the details */
+    padding: 2rem;
+    border-radius: 1rem; /* Smooth rounded corners */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.contact-details h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--main-color); /* Highlight heading */
+}
+
+.contact-details p {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.contact-details a {
+    color: var(--main-color); /* Highlight links */
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+.contact-details .social-links {
+    margin-top: 1.5rem;
+}
+
+.contact-details .social-links a {
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 2rem;
+    color: var(--main-color);
+    transition: 0.3s ease;
+}
+
+.contact-details .social-links a:hover {
+    color: var(--text-color);
+}
+
+.input-box {
+    flex: 1; /* Take up equal space */
+    max-width: 50%; /* Limit the width of the form */
+}
+
+.input-box {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+    gap: 1.5rem; /* Add spacing between input fields */
+    margin: 0 auto; /* Center the grid horizontally */
+    max-width: 40rem; /* Limit the width of the input fields container */
+    justify-content: center; /* Center the grid items */
+}
+
+.input-box .input-field {
+    width: 100%; /* Ensure input fields take full width of their container */
+}
+
+.input-box textarea {
+    grid-column: span 2; /* Make the textarea span across both columns */
+    width: 120%; /* Increase the width of the textarea */
+    max-width: none; /* Allow it to exceed the container width */
+    padding: 1.5rem; /* Add padding for better spacing */
+    border-radius: 1rem; /* Smooth rounded corners */
+    border: 0.1rem solid var(--main-color); /* Add a border for emphasis */
+    background: var(--snd-bf-color); /* Background color for textarea */
+    color: var(--text-color); /* Text color for visibility */
+    font-size: 1.6rem; /* Adjusted font size for better readability */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: 0.3s ease; /* Smooth transition for hover effects */
+    resize: none; /* Disable resizing */
+    height: 10rem; /* Set a fixed height for the textarea */
+}
+
+.input-box textarea:focus {
+    border-color: var(--main-color); /* Highlight border on focus */
+    box-shadow: 0 0 1.5rem var(--main-color); /* Add glow effect on focus */
+    outline: none; /* Remove default outline */
+}
+
+.input-box input,
+.input-box textarea {
+    width: 100%; /* Full width for input fields */
+    max-width: 100%; /* Ensure they don't exceed the container width */
+    padding: 1.5rem; /* Add padding for better spacing */
+    border-radius: 1rem; /* Smooth rounded corners */
+    border: 0.1rem solid var(--main-color); /* Add a border for emphasis */
+    background: var(--snd-bf-color); /* Background color for input fields */
+    color: var(--text-color); /* Text color for visibility */
+    font-size: 1.6rem; /* Adjusted font size for better readability */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.input-box input:focus,
+.input-box textarea:focus {
+    border-color: var(--main-color); /* Highlight border on focus */
+    box-shadow: 0 0 1.5rem var(--main-color); /* Add glow effect on focus */
+    outline: none; /* Remove default outline */
+}
+
+textarea {
+    resize: none; /* Disable resizing */
+    height: 10rem; /* Set a fixed height for the textarea */
+}
+
+.contact form .btn {
+    display: inline-block;
+    padding: 1rem 2.5rem; /* Add padding for the button */
+    background: var(--main-color); /* Button background color */
+    color: var(--text-color); /* Button text color */
+    font-size: 1.6rem; /* Adjust font size */
+    border-radius: 2rem; /* Smooth rounded corners */
+    font-weight: 700; /* Make the text bold */
+    text-transform: uppercase; /* Make text uppercase */
+    transition: 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer; /* Change cursor to pointer */
+    border: none; /* Remove default border */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.contact form .btn:hover {
+    background: var(--text-color); /* Invert colors on hover */
+    color: var(--main-color); /* Change text color on hover */
+    box-shadow: 0 0 1.5rem var(--main-color); /* Add glow effect on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.contact form textarea {
+    resize: none; /* Disable resizing */
+    height: 10rem; /* Set a fixed height for the textarea */
+    text-align: left; /* Align text to the left inside the textarea */
+}
+
+.contact .details {
+    margin-top: 3rem; /* Add spacing above the details */
+    font-size: 1.6rem; /* Adjust font size for better readability */
+    color: var(--text-color); /* Text color for visibility */
+    line-height: 1.8; /* Improve readability */
+}
+
+.contact .details i {
+    color: var(--main-color); /* Highlight icons with the main color */
+    margin-right: 1rem; /* Add spacing between icons and text */
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 2rem 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .input-box {
+        grid-template-columns: 1fr; /* Stack input fields vertically on smaller screens */
+        max-width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .input-box input,
+    .input-box textarea {
+        width: 100%; /* Full width for smaller screens */
+    }
+}
+.interests {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    align-items: flex-start; /* Align items to the top */
+    gap: 1rem; /* Reduce the gap between the image and text */
+    background: var(--snd-bf-color); /* Background color for the section */
+    padding: 5rem 9%; /* Add padding for spacing */
+    border-radius: 1rem; /* Smooth rounded corners */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 5rem; /* Add spacing below the section */
+}
+
+.interests-img {
+    flex: 0 0 auto; /* Prevent the image from stretching */
+    max-width: 20%; /* Limit the width of the image */
+    margin-right: 1rem; /* Add a small margin to the right of the image */
+}
+
+.interests-img img {    border-radius: 1rem; /* Add rounded corners */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: 0.3s ease; /* Add smooth transition for hover effects */
+}
+
+.interests-img img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+.interests-content {
+    flex: 1; /* Allow the text to take up the remaining space */
+    text-align: left; /* Align text to the left */
+}
+
+.h2 {
+    font-size: 3.2rem; /* Adjust font size for the heading */
+    margin-bottom: 1rem; /* Reduce spacing below the heading */
+    color: var(--main-color); /* Highlight the heading */
+    text-align: center; /* Center-align the heading */
+    justify-items: center;
+    align-items: center;
+    margin-left: 35%;
+}
+
+.interests-content p {
+    font-size: 1.8rem; /* Adjust font size for readability */
+    line-height: 1; /* Improve readability */
+    margin-bottom: 1rem; /* Reduce spacing below the paragraph */
+    color: var(--text-color); /* Text color for visibility */
+}
+
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for tags */
+    gap: 0.5rem; /* Reduce spacing between tags */
+    margin-top: 1rem; /* Add spacing above the tags */
+}
+
+.interest-tags span {
+    background: var(--main-color); /* Highlight tags */
+    color: var(--text-color); /* Text color for visibility */
+    padding: 0.5rem 1rem; /* Reduce padding for spacing */
+    border-radius: 2rem; /* Smooth rounded corners */
+    font-size: 1.4rem; /* Adjust font size */
+    font-weight: 600; /* Make the text bold */
+    transition: 0.3s ease; /* Add smooth transition for hover effects */
+}
+
+.interest-tags span:hover {
+    background: var(--text-color); /* Invert colors on hover */
+    color: var(--main-color); /* Change text color on hover */
+    box-shadow: 0 0 1rem var(--main-color); /* Add a subtle shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .interests {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center-align text */
+    }
+
+    .interests-img {
+        max-width: 100%; /* Allow full width on smaller screens */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 1rem; /* Add spacing below the image */
+    }
+
+    .interests-content {
+        text-align: center; /* Center-align text on smaller screens */
+    }
+}
+.education {
+    padding: 5rem 9%; /* Add padding for spacing */
+    background: var(--snd-bf-color); /* Background color for the section */
+    color: var(--text-color); /* Text color for readability */
+    text-align: center; /* Center-align text */
+    border-radius: 1rem; /* Smooth rounded corners */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 5rem; /* Add spacing below the section */
+}
+
+.education .heading {
+    font-size: 3rem; /* Larger font size for the heading */
+    margin-bottom: 3rem; /* Add spacing below the heading */
+    color: var(--main-color); /* Highlight the heading */
+}
+
+.education-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem; /* Add spacing between education items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.education-item {
+    flex: 1; /* Take up equal space */
+    max-width: 30%; /* Limit the width of each education item */
+    background: var(--bg-color); /* Background color for each item */
+    padding: 2rem; /* Add padding for spacing */
+    border-radius: 1rem; /* Smooth rounded corners */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.education-item:hover {
+    transform: translateY(-1rem); /* Slight lift effect on hover */
+    box-shadow: 0 0 2rem var(--main-color); /* Highlight shadow on hover */
+}
+
+.education-item h3 {
+    font-size: 2rem; /* Adjust font size for the title */
+    margin-bottom: 1rem; /* Add spacing below the title */
+    color: var(--main-color); /* Highlight the title */
+}
+
+.education-item p {
+    font-size: 1.6rem; /* Adjust font size for readability */
+    line-height: 1.8; /* Improve readability */
+    margin-bottom: 1rem; /* Add spacing below each paragraph */
+    color: var(--text-color); /* Text color for visibility */
+}
+
+.education-item i {
+    color: var(--main-color); /* Highlight icons */
+    margin-right: 0.5rem; /* Add spacing between icons and text */
+}
+
+.education .btn {
+    display: inline-block;
+    margin-top: 3rem; /* Add spacing above the button */
+    padding: 1rem 3rem; /* Add padding for the button */
+    background: var(--main-color); /* Button background color */
+    color: var(--text-color); /* Button text color */
+    font-size: 1.6rem; /* Adjust font size */
+    border-radius: 2rem; /* Smooth rounded corners */
+    font-weight: 700;
+    text-transform: uppercase; /* Make text uppercase */
+    transition: 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.education .btn:hover {
+    background: var(--text-color); /* Invert colors on hover */
+    color: var(--main-color); /* Change text color on hover */
+    box-shadow: 0 0 1.5rem var(--main-color); /* Add glow effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .education-container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center-align items */
+    }
+
+    .education-item {
+        max-width: 100%; /* Allow full width on smaller screens */
+    }
+}
+.project {
+    padding: 5rem 9%; /* Add padding for spacing */
+    background: var(--snd-bf-color); /* Background color for the section */
+    color: var(--text-color); /* Text color for readability */
+    text-align: center; /* Center-align text */
+    border-radius: 1rem; /* Smooth rounded corners */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 5rem; /* Add spacing below the section */
+}
+
+.project .heading {
+    font-size: 3.5rem; /* Larger font size for the heading */
+    margin-bottom: 3rem; /* Add spacing below the heading */
+    color: var(--main-color); /* Highlight the heading */
+    text-transform: uppercase; /* Make the heading uppercase */
+    letter-spacing: 0.1rem; /* Add slight letter spacing */
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns layout */
+    gap: 2rem; /* Add spacing between project items */
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.project-box {
+    background: var(--bg-color); /* Background color for each project box */
+    border-radius: 1rem; /* Smooth rounded corners */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Prevent content overflow */
+    transition: 0.3s ease; /* Smooth transition for hover effects */
+    position: relative; /* For overlay effects */
+    width: 90%; /* Reduce the width of the project box */
+    margin: 0 auto; /* Center the project boxes */
+}
+
+.project-box:hover {
+    transform: translateY(-1rem); /* Slight lift effect on hover */
+    box-shadow: 0 0 2rem var(--main-color); /* Highlight shadow on hover */
+}
+
+.project-box img {
+    width: 100%; /* Ensure the image takes the full width of its container */
+    height: 15rem; /* Reduce the height of the image */
+    object-fit: cover; /* Ensure the image fits within the container */
+    border-bottom: 0.2rem solid var(--main-color); /* Add a border below the image */
+}
+
+.project-box h3 {
+    font-size: 1.8rem; /* Reduce font size for the title */
+    margin: 1rem 0; /* Add spacing above and below the title */
+    color: var(--main-color); /* Highlight the title */
+}
+
+.project-box .btn {
+    display: inline-block;
+    margin: 1rem 0; /* Add spacing above and below the button */
+    padding: 0.6rem 1.5rem; /* Reduce padding for the button */
+    background: var(--main-color); /* Button background color */
+    color: var(--text-color); /* Button text color */
+    font-size: 1.2rem; /* Reduce font size */
+    border-radius: 2rem; /* Smooth rounded corners */
+    font-weight: 700;
+    text-transform: uppercase; /* Make text uppercase */
+    transition: 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.project-box .btn:hover {
+    background: var(--text-color); /* Invert colors on hover */
+    color: var(--main-color); /* Change text color on hover */
+    box-shadow: 0 0 1.5rem var(--main-color); /* Add glow effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .project-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns layout on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .project-container {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+
+    .project-box {
+        width: 100%; /* Allow full width on smaller screens */
+    }
+
+    .project-box img {
+        height: 12rem; /* Further reduce image height on smaller screens */
+    }
+}
+.skills {
+    padding: 5rem 9%; /* Add padding for spacing */
+    background: var(--snd-bf-color); /* Background color for the section */
+    color: var(--text-color); /* Text color for readability */
+    text-align: center; /* Center-align text */
+    border-radius: 1rem; /* Smooth rounded corners */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 5rem; /* Add spacing below the section */
+}
+
+.skills .heading {
+    font-size: 3.5rem; /* Larger font size for the heading */
+    margin-bottom: 3rem; /* Add spacing below the heading */
+    color: var(--main-color); /* Highlight the heading */
+    text-transform: uppercase; /* Make the heading uppercase */
+    letter-spacing: 0.1rem; /* Add slight letter spacing */
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-between;
+    gap: 2rem; /* Add spacing between skill items */
+}
+
+.skill-box {
+    flex: 1 1 calc(33.333% - 2rem); /* Three columns layout */
+    background: var(--bg-color); /* Background color for each skill box */
+    padding: 2rem; /* Add padding for spacing */
+    border-radius: 1rem; /* Smooth rounded corners */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: 0.3s ease; /* Smooth transition for hover effects */
+    text-align: left; /* Align text to the left */
+}
+
+.skill-box:hover {
+    transform: translateY(-1rem); /* Slight lift effect on hover */
+    box-shadow: 0 0 2rem var(--main-color); /* Highlight shadow on hover */
+}
+
+.skill-box h3 {
+    font-size: 2rem; /* Adjust font size for the skill title */
+    margin-bottom: 1rem; /* Add spacing below the title */
+    color: var(--main-color); /* Highlight the title */
+}
+
+.skill-box p {
+    font-size: 1.6rem; /* Adjust font size for readability */
+    line-height: 1.8; /* Improve readability */
+    margin-bottom: 1rem; /* Add spacing below the paragraph */
+    color: var(--text-color); /* Text color for visibility */
+}
+
+.progress-bar {
+    position: relative;
+    width: 100%; /* Full width */
+    height: 1.5rem; /* Adjust height of the progress bar */
+    background: rgba(255, 255, 255, 0.1); /* Light background for the bar */
+    border-radius: 1rem; /* Smooth rounded corners */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.progress-bar span {
+    display: block;
+    height: 100%; /* Full height */
+    background: var(--main-color); /* Highlight the progress */
+    width: 0; /* Default width (animated later) */
+    border-radius: 1rem; /* Smooth rounded corners */
+    transition: width 0.5s ease; /* Smooth transition for progress animation */
+}
+
+.skill-box:hover .progress-bar span {
+    width: 90%; /* Example: Set progress width on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .skill-box {
+        flex: 1 1 calc(50% - 2rem); /* Two columns layout on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .skill-box {
+        flex: 1 1 100%; /* Single column layout on smaller screens */
+    }
+}
+:root {
+    --bg-color: #f9f9f9; /* Bright background color */
+    --snd-bf-color: #ffffff; /* Secondary bright background color */
+    --text-color: #333333; /* Dark text color for contrast */
+    --main-color: #007bff; /* Accent color */
+}
+
+body {
+    background-color: var(--bg-color); /* Apply bright background color */
+    color: var(--text-color); /* Ensure text is readable on a bright background */
+    font-family: 'Nunito', sans-serif; /* Use a clean font */
+    margin: 0;
+    padding: 0;
+}
+
+.contact {
+    background: var(--snd-bf-color); /* Bright background for the contact section */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.header {
+    background-color: var(--snd-bf-color); /* Bright header background */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow for the header */
+}
+
+.portfolio-container .portfolio-box {
+    background: var(--snd-bf-color); /* Bright background for portfolio boxes */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.footer {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 3rem 9%; /* Add padding for spacing */
+    background: var(--snd-bf-color); /* Bright background for the footer */
+    text-align: center; /* Center-align text */
+}
+
+.footer text {
+    font-size: 2rem; /* Increase font size for better readability */
+    color: var(--text-color); /* Ensure text is visible */
+    margin-bottom: 1.5rem; /* Add spacing below the text */
+}
+
+.footer-icon a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 50%; /* Smooth circular borders */
+    font-size: 2.5rem; /* Increase font size for icons */
+    color: var(--main-color);
+    margin: 1.5rem 1rem; /* Adjust spacing */
+    transition: 0.5s ease;
+}
+
+.footer-icon a:hover {
+    box-shadow: 0 0 1rem var(--main-color); /* Add a smooth shadow effect */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        text-align: center; /* Center-align text */
+    }
+
+    .footer-icon a {
+        margin: 0.5rem; /* Adjust spacing for smaller screens */
+
+    }
+    .footer-icon a:hover {
+        transform: scale(1.05); /* Slightly reduce hover effect on smaller screens */
+    }
+    .footer-icon a {
+        font-size: 2rem; /* Adjust icon size for smaller screens */
+    }
+    .footer text {
+        font-size: 1.8rem; /* Adjust font size for smaller screens */
+    }
+    .footer-icon {
+        margin-bottom: 2rem; /* Add spacing below the icons */
+    }
+    .about{
+        flex-direction: column; /* Stack content vertically */
+    }
+    .about-img img{
+        width: 90vw; /* Allow full width on smaller screens */
+        margin-top: 4rem; /* Add spacing above the image */
+    }
+}
+@media (max-width: 450px) {
+    .html{
+        font-size: 50%; /* Adjust font size for smaller screens */
+    }
 }

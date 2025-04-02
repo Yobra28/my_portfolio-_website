@@ -201,24 +201,26 @@
             </div>
 
             <!-- Right: Contact Form -->
-            <div class="input-box">
-                <div class="input-field">
-                    <input type="text" placeholder="Your Name" required>
+            <form id="contact-form">
+                <div class="input-box">
+                    <div class="input-field">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="subject" placeholder="Your Subject" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                    </div>
+                    <div class="input-field">
+                        <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
                 </div>
-                <div class="input-field">
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <div class="input-field">
-                    <input type="text" placeholder="Your Subject" required>
-                </div>
-                <div class="input-field">
-                    <input type="tel" placeholder="Your Phone Number" required>
-                </div>
-                <div class="input-field">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </div>
+            </form>
         </div>
     </section>
 

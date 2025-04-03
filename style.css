@@ -51,11 +51,19 @@ html {
     cursor: pointer;
 }
 
+/* Navigation Menu */
 .navbar {
-    font-size: 1.6rem; /* Slightly larger font size */
+    display: flex;
+    gap: 2rem;
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+}
+
+#menu-icon {
+    display: none; /* Hidden by default on larger screens */
+    font-size: 3rem;
     color: var(--text-color);
-    margin-left: 4rem;
-    font-weight: 700;
+    cursor: pointer;
 }
 
 .navbar a:hover,
@@ -159,6 +167,27 @@ html {
 
     .home-content {
         text-align: center; /* Center-align text on smaller screens */
+    }
+
+    .navbar {
+        display: none; /* Hide the navbar */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute;
+        top: 100%; /* Position below the header */
+        left: 0;
+        width: 100%; /* Full width */
+        background: var(--snd-bf-color);
+        padding: 1rem 0;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .navbar.active {
+        display: flex; /* Show the navbar when active */
+    }
+
+    #menu-icon {
+        display: block; /* Show menu icon on smaller screens */
     }
 }
 .about {

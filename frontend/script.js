@@ -259,7 +259,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
     };
 
     try {
-        const response = await fetch("http://localhost:5000/api/contact", {  // change to your backend URL in production
+        const response = await fetch("https://my-portfolio-website-oapu.onrender.com/api/contact", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
@@ -277,6 +277,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
         alert("⚠️ Something went wrong. Try again later.");
     }
 });
+
 
 // ===== NOTIFICATION SYSTEM =====
 function showNotification(message, type = 'info') {
